@@ -17,16 +17,16 @@
             @*<div class="col-md-4">
                     <ul class="list-unstyled list-inline">
                         <li class="dropdown dropdown-small">
-                           
+
                             <i class="fa fa-user"> @Html.ActionLink("Login", "dangnhap", "Home")</i>
                         </li>
                         <li class="dropdown dropdown-small">
-                            <i class="fa fa-user"> @Html.ActionLink("Registration", "dangnhap", "Home")</i>                      
+                            <i class="fa fa-user"> @Html.ActionLink("Registration", "dangnhap", "Home")</i>
                         </li>
                     </ul>
                 </div>*@
-            </div>
         </div>
+    </div>
 </div> <!-- End header area -->
 
 <div class="site-branding-area">
@@ -34,7 +34,7 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="logo">
-                    <h1 ><a href="./" style="color:#5a88ca;font-family:Rockwell">QHT Mobie </a></h1>
+                    <h1><a href="./" style="color:#5a88ca;font-family:Rockwell">QHT Mobie </a></h1>
                 </div>
             </div>
 
@@ -58,9 +58,9 @@
                     <span class="icon-bar"></span>
                 </button>
             </div>
-            <div class="navbar-collapse collapse">
+            <div class="navbar-collapse collapse" id="mymenu">
                 <ul class="nav navbar-nav">
-                    <li class="active">@Html.ActionLink("Home","Index","Home")</li>
+                    <li class="active">@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Shop page", "Shop", "Home")</li>
                     <li>@Html.ActionLink("Single product", "SingleProduct", "Home")</li>
                     <li>@Html.ActionLink("Cart", "Cart", "Home")</li>
@@ -73,3 +73,19 @@
         </div>
     </div>
 </div> <!-- End mainmenu area -->
+
+@section Scripts {
+    <script>
+     //Define your scripts
+      $(function(){
+          //When an <li> element in your myMenu area is clicked
+          $('#mymenu li').click(function() {
+                //Removes the active class from any <li> elements
+                $('li.active').removeClass('active');
+                //Adds it to the current element
+                $(this).addClass('active');
+
+         });
+     });
+    </script>
+}

@@ -6,16 +6,19 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using DoAn.Models;
+using DoAn.Areas.Admin.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+       
+        private readonly DPContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(DPContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -30,9 +33,14 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
-        public IActionResult Shop()
+        public async Task<IActionResult> Shop(string? MaDT)
         {
-            return View();
+            var list = from m in _context.DienThoai select m;
+            if (MaDT != null)
+               
+                list = list.Where(m => m.MaHangSX.Equals(MaDT));
+
+            return View(await list.ToListAsync());
         }
         public IActionResult SingleProduct()
         {
