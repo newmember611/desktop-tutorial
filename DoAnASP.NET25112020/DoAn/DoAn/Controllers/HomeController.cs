@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using DoAn.Models;
 
-namespace DoAn.Controllers
+namespace WebApplication1.Controllers
 {
     public class HomeController : Controller
     {
@@ -22,7 +22,30 @@ namespace DoAn.Controllers
         {
             return View();
         }
-
+        public IActionResult Cart()
+        {
+            return View();
+        }
+        public IActionResult Checkout()
+        {
+            return View();
+        }
+        public IActionResult Shop()
+        {
+            return View();
+        }
+        public IActionResult SingleProduct()
+        {
+            return View();
+        }
+        public IActionResult Login()
+        {
+            return View();
+        }
+        public IActionResult Registration()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();

@@ -8,10 +8,9 @@ namespace DoAn.Areas.Admin.Data
 {
     public class DPContext : DbContext
     {
-        DPContext(DbContextOptions<DPContext> options) : base(options) {}
-        public DbSet<Models.SanPhamModel> SanPham { get; set; }
-        public DbSet<Models.LoaiSPModel> LoaiSP { get; set; }
-        public DbSet<Models.ImgModel> IMG { get; set; }
+        public DPContext(DbContextOptions<DPContext> options) : base(options) {}
+        public DbSet<Models.DienThoaiModel> DienThoai { get; set; }
+        public DbSet<Models.DongDienThoaiModel> DongDienThoai { get; set; }
     
     }
 }
